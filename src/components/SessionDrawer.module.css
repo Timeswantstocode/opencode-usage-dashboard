@@ -1,0 +1,414 @@
+/* Session drill-down. Fixed right panel, hairline borders, no shadow. */
+
+.root {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+}
+
+.backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+}
+
+:global([data-theme='paper']) .backdrop {
+  background: rgba(20, 20, 19, 0.35);
+}
+
+.panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  width: min(560px, 100vw);
+  border: 0;
+  border-left: 1px solid var(--line);
+  border-radius: 0;
+  background: var(--panel);
+  box-shadow: none;
+  color: var(--ink);
+  outline: none;
+}
+
+/* Header ------------------------------------------------------------------ */
+
+.head {
+  display: flex;
+  flex: none;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 20px 16px;
+  border-bottom: 1px solid var(--line);
+}
+
+.headMain {
+  min-width: 0;
+}
+
+.eyebrow {
+  margin: 0;
+  overflow-wrap: anywhere;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.title {
+  margin: 6px 0 0;
+  overflow-wrap: anywhere;
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.25;
+}
+
+.meta {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 10px;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+}
+
+.close {
+  flex: none;
+  width: 26px;
+  height: 26px;
+  appearance: none;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 0;
+  background: none;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 11px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.close:hover {
+  border-color: var(--line-strong);
+  color: var(--ink);
+}
+
+.close:focus-visible {
+  outline: 1px solid var(--accent);
+  outline-offset: 1px;
+}
+
+/* Body -------------------------------------------------------------------- */
+
+.body {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.section {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--line);
+}
+
+.section:last-child {
+  border-bottom: 0;
+}
+
+.sectionTitle {
+  margin: 0 0 10px;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.empty {
+  margin: 0;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.02em;
+}
+
+.error {
+  margin: 0;
+  padding: 18px 20px;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+/* Loading: three 1px skeleton lines. */
+
+.skeleton {
+  display: grid;
+  gap: 14px;
+  padding: 20px;
+}
+
+.skeletonLine {
+  height: 1px;
+  background: var(--line-strong);
+  animation: skeleton-pulse 1.4s ease-in-out infinite;
+}
+
+.skeletonLine:nth-child(2) {
+  width: 86%;
+}
+
+.skeletonLine:nth-child(3) {
+  width: 64%;
+}
+
+@keyframes skeleton-pulse {
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skeletonLine {
+    animation: none;
+  }
+}
+
+/* Token cells ------------------------------------------------------------- */
+
+.cells {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  border: 1px solid var(--line);
+  background: var(--line);
+}
+
+.cell {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+  padding: 8px 10px;
+  background: var(--panel);
+}
+
+.cellLabel {
+  overflow: hidden;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.cellValue {
+  color: var(--ink);
+  font-family: var(--mono);
+  font-size: 14px;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.2;
+}
+
+/* Timeline --------------------------------------------------------------- */
+
+.timeline {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 56px;
+  border-bottom: 1px solid var(--line);
+}
+
+.bar {
+  flex: 1 1 0;
+  min-width: 1px;
+  background: var(--accent);
+}
+
+.barEmpty {
+  flex: 1 1 0;
+  min-width: 1px;
+  height: 1px;
+  background: var(--line-strong);
+}
+
+.axis {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 4px;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.06em;
+}
+
+/* Tables ----------------------------------------------------------------- */
+
+.scroll {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  min-width: 320px;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.table th {
+  padding: 0 0 6px;
+  border-bottom: 1px solid var(--line);
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-align: left;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.table th:first-child {
+  width: 52%;
+}
+
+.table td {
+  overflow: hidden;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--line);
+  color: var(--ink-soft);
+  font-family: var(--mono);
+  font-size: 11px;
+  line-height: 1.35;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.table th.num {
+  padding-left: 10px;
+}
+
+.table td.num {
+  padding-left: 10px;
+}
+
+.modelName {
+  display: block;
+  overflow: hidden;
+  color: var(--ink);
+  text-overflow: ellipsis;
+}
+
+.modelMeta {
+  display: block;
+  overflow: hidden;
+  color: var(--muted);
+  font-size: 9px;
+  letter-spacing: 0.04em;
+  text-overflow: ellipsis;
+}
+
+.toolName {
+  overflow: hidden;
+  color: var(--ink);
+  text-overflow: ellipsis;
+}
+
+/* Subagents -------------------------------------------------------------- */
+
+.subagents {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.subagent {
+  display: grid;
+  grid-template-columns: 12px minmax(0, 1fr) auto auto;
+  align-items: baseline;
+  gap: 8px;
+  padding: 5px 0 5px 8px;
+  border-bottom: 1px solid var(--line);
+}
+
+.subagent:last-child {
+  border-bottom: 0;
+}
+
+.arrow {
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 11px;
+  line-height: 1;
+}
+
+.subagentTitle {
+  overflow: hidden;
+  color: var(--ink-soft);
+  font-family: var(--serif);
+  font-size: 13px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.subagentNum,
+.subagentCost {
+  color: var(--ink-soft);
+  font-family: var(--mono);
+  font-size: 10px;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.subagentCost {
+  text-align: right;
+}
+
+/* Mobile ----------------------------------------------------------------- */
+
+@media (max-width: 560px) {
+  .panel {
+    width: 100vw;
+    border-left: 0;
+  }
+
+  .head {
+    padding: 16px;
+  }
+
+  .section {
+    padding: 14px 16px;
+  }
+
+  .cells {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .title {
+    font-size: 20px;
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "fallback": { "label": "Fallback", "input": 0, "output": 0, "cacheRead": 0 },
+  "models": {
+    "provider/model-id": { "input": 0.5, "output": 1.5, "cacheRead": 0.05 }
+  }
+}

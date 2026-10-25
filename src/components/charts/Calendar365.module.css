@@ -1,0 +1,355 @@
+.panel {
+  --cell-gap: 3px;
+  --month-row: 14px;
+  min-width: 0;
+  overflow: hidden;
+  background: var(--panel);
+  border: 1px solid var(--line);
+}
+
+.head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  padding: 20px 24px 16px;
+  border-bottom: 1px solid var(--line);
+}
+
+.title {
+  margin: 0;
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 1.15;
+}
+
+.meta {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 10px;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.12em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.toggle {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+}
+
+.toggle button {
+  appearance: none;
+  padding: 2px 0;
+  background: none;
+  border: 0;
+  border-bottom: 1px solid transparent;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  line-height: 1.6;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.toggle button:hover {
+  color: var(--ink-soft);
+}
+
+.toggle button[aria-pressed='true'] {
+  color: var(--ivory);
+  border-bottom-color: var(--ink);
+}
+
+.toggle button:focus-visible {
+  outline: 1px solid var(--ink-soft);
+  outline-offset: 2px;
+}
+
+.body {
+  padding: 20px 24px 18px;
+}
+
+.empty {
+  display: grid;
+  place-items: center;
+  min-height: 148px;
+  margin: 0;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+}
+
+/* The weekday gutter (Mon/Wed/Fri) sits outside the 53 week columns. */
+.frame {
+  display: grid;
+  grid-template-columns: 28px minmax(0, 1fr);
+  column-gap: 8px;
+  width: 100%;
+  margin: 0;
+}
+
+.dayLabels {
+  display: grid;
+  grid-template-rows: repeat(7, minmax(0, 1fr));
+  gap: var(--cell-gap);
+  padding-top: calc(var(--month-row) + 4px);
+}
+
+.dayLabels span {
+  display: flex;
+  align-items: center;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.06em;
+  line-height: 1;
+}
+
+.main {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 4px;
+  width: 100%;
+  /* A cell never grows past 22px: 53 x 22 plus the 52 gaps. Left-aligned,
+     never centred, so the grid starts on the panel's content edge. */
+  max-width: 1180px;
+  min-width: 0;
+  justify-self: start;
+}
+
+/* Month labels share the 53-column track, so each one starts on the column of
+   its first week and spans the weeks it covers. */
+.months {
+  display: grid;
+  grid-template-columns: repeat(53, minmax(0, 1fr));
+  gap: var(--cell-gap);
+  height: var(--month-row);
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  line-height: var(--month-row);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(53, minmax(0, 1fr));
+  gap: var(--cell-gap);
+  min-width: 0;
+}
+
+.week {
+  display: grid;
+  grid-auto-rows: minmax(0, 1fr);
+  gap: var(--cell-gap);
+  min-width: 0;
+}
+
+.cell,
+.blank {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+}
+
+.cell {
+  position: relative;
+  background: var(--cell-empty);
+  cursor: pointer;
+}
+
+.cell:hover,
+.cell:focus-visible {
+  z-index: 5;
+  outline: 1px solid var(--ink-soft);
+  outline-offset: 1px;
+}
+
+.cell:focus-visible {
+  outline-color: var(--ivory);
+}
+
+/* Days outside the selected range keep their place in the year but recede, so
+   the chosen window reads at a glance. Only days with usage get this class: a
+   level-0 cell is already within a couple of RGB points of the panel, so at
+   this opacity it would disappear instead of reading as "no activity".
+   Hover/focus restores them because the same opacity would otherwise fade the
+   cell's tooltip. */
+.outOfRange {
+  opacity: 0.22;
+  filter: saturate(0.5);
+}
+
+.outOfRange:hover,
+.outOfRange:focus-visible {
+  opacity: 1;
+  filter: none;
+}
+
+.blank {
+  background: transparent;
+}
+
+.tip {
+  display: none;
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  z-index: 20;
+  box-sizing: border-box;
+  min-width: 152px;
+  padding: 7px 9px;
+  transform: translateX(-50%);
+  background: var(--elem);
+  border: 1px solid var(--line-strong);
+  color: var(--ink-soft);
+  font-family: var(--mono);
+  font-size: 10px;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.5;
+  text-align: left;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.cell:hover .tip,
+.cell:focus-visible .tip {
+  display: grid;
+  gap: 1px;
+}
+
+.below .tip {
+  top: calc(100% + 6px);
+  bottom: auto;
+}
+
+.tipLeft {
+  left: 0;
+  transform: none;
+}
+
+.tipRight {
+  right: 0;
+  left: auto;
+  transform: none;
+}
+
+.tipDate {
+  color: var(--ivory);
+  font-family: var(--serif);
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+.tipValue {
+  color: var(--ink);
+}
+
+.tipMeta {
+  color: var(--muted);
+}
+
+.legend {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.legendCell {
+  display: inline-block;
+  width: 11px;
+  height: 11px;
+}
+
+.summary {
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 10px;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.08em;
+  line-height: 1.4;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.summaryDate {
+  white-space: nowrap;
+}
+
+@media (max-width: 1120px) {
+  .panel {
+    --month-row: 12px;
+  }
+
+  .dayLabels {
+    padding-top: calc(var(--month-row) + 4px);
+  }
+
+  .months {
+    font-size: 8px;
+  }
+}
+
+@media (max-width: 760px) {
+  .head {
+    padding: 16px;
+  }
+
+  .body {
+    padding: 16px;
+  }
+
+  /* The year has to fit a phone: hide the weekday gutter and let the 53
+     columns share the panel width instead of forcing a fixed-width frame. */
+  .frame {
+    grid-template-columns: minmax(0, 1fr);
+    column-gap: 0;
+    width: 100%;
+    margin: 0;
+  }
+
+  .dayLabels {
+    display: none;
+  }
+
+  .months {
+    font-size: 8px;
+    letter-spacing: 0.02em;
+  }
+
+  /* Every other month name would touch at phone widths. */
+  .months span:nth-child(even) {
+    visibility: hidden;
+  }
+
+  .grid {
+    gap: 1px;
+  }
+
+  .week {
+    gap: 1px;
+  }
+}

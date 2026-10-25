@@ -1,0 +1,372 @@
+.panel {
+  min-width: 0;
+  border: 1px solid var(--line);
+  background: var(--panel);
+}
+
+.head {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+  padding: 18px 20px 14px;
+  border-bottom: 1px solid var(--line);
+}
+
+.title {
+  margin: 0;
+  font-family: var(--serif, 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif);
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  color: var(--ivory);
+}
+
+.subtitle {
+  margin: 0;
+  font-family: var(--serif, 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif);
+  font-style: italic;
+  font-size: 12.5px;
+  line-height: 1.4;
+  color: var(--muted);
+}
+
+.line {
+  margin: 0;
+  padding: 22px 20px;
+  font-family: var(--mono, 'Cascadia Mono', Consolas, monospace);
+  font-size: 11px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.lineInline {
+  margin: 0;
+  font-family: var(--mono, 'Cascadia Mono', Consolas, monospace);
+  font-size: 11px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.block {
+  display: grid;
+  gap: 12px;
+  padding: 18px 20px 20px;
+  min-width: 0;
+}
+
+.block + .block {
+  border-top: 1px solid var(--line);
+}
+
+.blockHead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+}
+
+.blockTitle {
+  margin: 0;
+  font-family: var(--mono, 'Cascadia Mono', Consolas, monospace);
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.blockNote {
+  font-family: var(--mono, 'Cascadia Mono', Consolas, monospace);
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Fallback fields ---------------------------------------------------------- */
+
+.fields {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  align-items: end;
+  gap: 10px 12px;
+  min-width: 0;
+}
+
+.labelField {
+  grid-column: span 2;
+}
+
+.field {
+  display: grid;
+  gap: 5px;
+  min-width: 0;
+}
+
+.fieldLabel {
+  font-family: var(--mono, 'Cascadia Mono', Consolas, monospace);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.input {
+  width: 100%;
+  min-width: 0;
+  padding: 7px 9px;
+  border: 1px solid var(--line);
+  border-radius: 0;
+  background: var(--elem);
+  color: var(--ink);
+  font-family: var(--mono, 'Cascadia Mono', Consolas, monospace);
+  font-size: 12px;
+  line-height: 1.4;
+  font-variant-numeric: tabular-nums;
+}
+
+.input:hover {
+  border-color: var(--line-strong);
+}
+
+.input:focus {
+  border-color: var(--accent);
+}
+
+.input:focus-visible {
+  outline: 1px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.invalid {
+  border-color: var(--red);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.button {
+  appearance: none;
+  padding: 7px 12px;
+  border: 1px solid var(--line);
+  border-radius: 0;
+  background: var(--elem);
+  color: var(--ink);
+  font-family: var(--mono, 'Cascadia Mono', Consolas, monospace);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  line-height: 1.4;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.button:hover:enabled {
+  border-color: var(--line-strong);
+  color: var(--ivory);
+}
+
+.button:disabled {
+  opacity: 0.55;
+  color: var(--muted);
+  cursor: default;
+}
+
+.button:focus-visible {
+  outline: 1px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.saved {
+  font-family: var(--mono, 'Cascadia Mono', Consolas, monospace);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+.error {
+  margin: 0;
+  padding: 12px 20px 14px;
+  border-top: 1px solid var(--line);
+  font-family: var(--mono, 'Cascadia Mono', Consolas, monospace);
+  font-size: 11px;
+  line-height: 1.6;
+  color: var(--red);
+}
+
+/* Unknown models table ----------------------------------------------------- */
+
+.scroll {
+  position: relative;
+  min-width: 0;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+}
+
+.table {
+  width: 100%;
+  min-width: 780px;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+}
+
+.th {
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  font-family: var(--mono, 'Cascadia Mono', Consolas, monospace);
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.right {
+  text-align: right;
+}
+
+.td {
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--line);
+  vertical-align: middle;
+  font-family: var(--mono, 'Cascadia Mono', Consolas, monospace);
+  font-size: 11px;
+  line-height: 1.4;
+  color: var(--ink);
+}
+
+.table tbody tr:last-child .td {
+  border-bottom: 0;
+}
+
+.row:hover .td {
+  background: var(--elem);
+}
+
+.provider {
+  color: var(--muted);
+  text-transform: lowercase;
+  white-space: nowrap;
+}
+
+.modelCell {
+  min-width: 170px;
+  color: var(--ink-soft);
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.num {
+  text-align: right;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.rateCell {
+  width: 92px;
+}
+
+.rateCell .input {
+  padding: 5px 6px;
+  font-size: 11px;
+}
+
+.actionCell {
+  white-space: nowrap;
+}
+
+.actionCell .button {
+  padding: 5px 8px;
+  font-size: 10px;
+}
+
+.actionCell .saved {
+  margin-left: 8px;
+}
+
+/* Footer ------------------------------------------------------------------- */
+
+.footer {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+  padding: 12px 20px 14px;
+  border-top: 1px solid var(--line);
+}
+
+.path {
+  min-width: 0;
+  font-family: var(--mono, 'Cascadia Mono', Consolas, monospace);
+  font-size: 10px;
+  line-height: 1.6;
+  color: var(--muted);
+  overflow-wrap: anywhere;
+}
+
+.overrides {
+  margin-left: auto;
+  font-family: var(--mono, 'Cascadia Mono', Consolas, monospace);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 720px) {
+  .fields {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .labelField {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 560px) {
+  .title {
+    font-size: 21px;
+  }
+
+  .head {
+    padding: 16px 14px 12px;
+  }
+
+  .block {
+    padding: 16px 14px 18px;
+  }
+
+  .error {
+    padding: 10px 14px 12px;
+  }
+
+  .footer {
+    padding: 10px 14px 12px;
+  }
+
+  .line {
+    padding: 18px 14px;
+  }
+}

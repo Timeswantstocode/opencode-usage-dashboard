@@ -1,0 +1,37 @@
+{
+  "name": "opencode-usage-dashboard",
+  "version": "0.1.0",
+  "description": "Local, read-only usage and cost dashboard for OpenCode",
+  "license": "MIT",
+  "type": "module",
+  "keywords": [
+    "opencode",
+    "usage",
+    "tokens",
+    "cost",
+    "dashboard",
+    "sqlite"
+  ],
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "dev": "next dev -p 4321",
+    "build": "next build",
+    "start": "next start -p 4321",
+    "typecheck": "tsc --noEmit",
+    "backfill": "node scripts/backfill.mjs",
+    "check:privacy": "node scripts/check-personal.mjs"
+  },
+  "dependencies": {
+    "next": "16.4.3",
+    "react": "19.3.1",
+    "react-dom": "19.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "typescript": "^5.9.3"
+  }
+}

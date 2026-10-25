@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img" aria-labelledby="hero-title hero-desc">
+  <title id="hero-title">opencode Usage Dashboard</title>
+  <desc id="hero-desc">A local, read-only OpenCode usage dashboard. Tokens, cost and sessions from your own SQLite.</desc>
+
+  <rect width="1200" height="360" rx="20" fill="#0A0A0A"/>
+  <rect x="0.5" y="0.5" width="1199" height="359" rx="19.5" fill="none" stroke="#282828"/>
+
+  <text x="64" y="90" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Courier New', monospace" font-size="22" fill="#FFF7F1">opencode<tspan fill="#EC5B2B">.</tspan></text>
+
+  <text x="64" y="170" font-family="Palatino Linotype, Palatino, Georgia, serif" font-size="68" fill="#FFF7F1">Usage Dashboard</text>
+
+  <text x="64" y="214" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Courier New', monospace" font-size="15" fill="#808080">Your tokens, cost and sessions — from your own SQLite.</text>
+
+  <rect x="64" y="240" width="96" height="2" fill="#EC5B2B"/>
+
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Courier New', monospace" font-size="10" fill="#C9C7C3" letter-spacing="1.4">
+    <text x="64" y="286">LOCAL ONLY</text>
+    <circle cx="150" cy="281" r="2" fill="#3C3C3C"/>
+    <text x="164" y="286">NO TELEMETRY</text>
+    <circle cx="265" cy="281" r="2" fill="#3C3C3C"/>
+    <text x="279" y="286">READ-ONLY DB</text>
+  </g>
+
+  <rect x="720" y="76" width="416" height="208" rx="14" fill="#141414" stroke="#282828"/>
+
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Courier New', monospace" font-size="9" fill="#808080" letter-spacing="1.6">
+    <text x="752" y="116">TOKENS</text>
+    <text x="958" y="116">ESTIMATED COST</text>
+  </g>
+
+  <g font-family="Palatino Linotype, Palatino, Georgia, serif" font-size="44" fill="#FFF7F1">
+    <text x="752" y="168">243M</text>
+    <text x="958" y="168">$4.33</text>
+  </g>
+
+  <g fill="#3A1F14">
+    <rect x="752" y="240" width="6" height="6" rx="1.8"/>
+    <rect x="775.86" y="240" width="6" height="6" rx="1.8"/>
+    <rect x="835.52" y="240" width="6" height="6" rx="1.8"/>
+    <rect x="919.03" y="240" width="6" height="6" rx="1.8"/>
+    <rect x="942.9" y="240" width="6" height="6" rx="1.8"/>
+    <rect x="1002.55" y="240" width="6" height="6" rx="1.8"/>
+    <rect x="1050.28" y="240" width="6" height="6" rx="1.8"/>
+  </g>
+  <g fill="#6B2A12">
+    <rect x="763.93" y="240" width="6" height="6" rx="1.8"/>
+    <rect x="811.66" y="240" width="6" height="6" rx="1.8"/>
+    <rect x="847.45" y="240" width="6" height="6" rx="1.8"/>
+    <rect x="883.24" y="240" width="6" height="6" rx="1.8"/>
+    <rect x="930.97" y="240" width="6" height="6" rx="1.8"/>
+    <rect x="978.69" y="240" width="6" height="6" rx="1.8"/>
+    <rect x="1014.48" y="240" width="6" height="6" rx="1.8"/>
+    <rect x="1062.21" y="240" width="6" height="6" rx="1.8"/>
+    <rect x="1098" y="240" width="6" height="6" rx="1.8"/>
+  </g>
+  <g fill="#A33D18">
+    <rect x="799.72" y="240" width="6" height="6" rx="1.8"/>
+    <rect x="859.38" y="240" width="6" height="6" rx="1.8"/>
+    <rect x="907.1" y="240" width="6" height="6" rx="1.8"/>
+    <rect x="954.83" y="240" width="6" height="6" rx="1.8"/>
+    <rect x="1026.41" y="240" width="6" height="6" rx="1.8"/>
+    <rect x="1086.07" y="240" width="6" height="6" rx="1.8"/>
+  </g>
+  <g fill="#EC5B2B">
+    <rect x="823.59" y="240" width="6" height="6" rx="1.8"/>
+    <rect x="895.17" y="240" width="6" height="6" rx="1.8"/>
+    <rect x="966.76" y="240" width="6" height="6" rx="1.8"/>
+    <rect x="1038.34" y="240" width="6" height="6" rx="1.8"/>
+  </g>
+  <g fill="#1A1A1A">
+    <rect x="787.79" y="240" width="6" height="6" rx="1.8"/>
+    <rect x="871.31" y="240" width="6" height="6" rx="1.8"/>
+    <rect x="990.62" y="240" width="6" height="6" rx="1.8"/>
+    <rect x="1074.14" y="240" width="6" height="6" rx="1.8"/>
+  </g>
+
+  <text x="1104" y="270" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Courier New', monospace" font-size="8" fill="#5C5C5C" letter-spacing="1">DEMO DATA</text>
+</svg>

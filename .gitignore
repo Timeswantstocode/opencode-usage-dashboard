@@ -1,0 +1,14 @@
+node_modules/
+.next/
+.data/
+.shots/
+*.tsbuildinfo
+.env*
+!.env.example
+pricing.local.json
+*.log
+dev.log
+logs/
+.DS_Store
+Thumbs.db
+Desktop.ini

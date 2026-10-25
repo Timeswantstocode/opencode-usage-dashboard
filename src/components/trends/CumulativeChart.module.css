@@ -1,0 +1,381 @@
+.panel {
+  min-width: 0;
+  border: 1px solid var(--line);
+  background: var(--panel);
+}
+
+.head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  padding: 20px 24px 16px;
+  border-bottom: 1px solid var(--line);
+}
+
+.eyebrow {
+  margin: 0 0 6px;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.title {
+  margin: 0;
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 24px;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 1.15;
+}
+
+.meta {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 10px;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.12em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.legend {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.legendItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  line-height: 1;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.tokenSwatch {
+  display: inline-block;
+  width: 16px;
+  height: 1px;
+  background: var(--blue);
+}
+
+.costSwatch {
+  display: inline-block;
+  width: 16px;
+  height: 1px;
+  background: var(--accent);
+}
+
+.canvas {
+  padding: 8px 24px 12px;
+}
+
+.plot {
+  position: relative;
+  width: 100%;
+  height: 300px;
+}
+
+.chart {
+  display: block;
+  cursor: crosshair;
+}
+
+.chart:focus-visible {
+  outline: 1px solid var(--ink-soft);
+  outline-offset: -1px;
+}
+
+.gridLine {
+  stroke: var(--line);
+  stroke-width: 1;
+  shape-rendering: crispEdges;
+}
+
+.baseline {
+  stroke: var(--line-strong);
+  stroke-width: 1;
+  shape-rendering: crispEdges;
+}
+
+.hoverRule {
+  stroke: var(--line-strong);
+  stroke-width: 1;
+  shape-rendering: crispEdges;
+}
+
+.axis {
+  fill: var(--muted);
+  font-family: var(--mono);
+  font-size: 10px;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.02em;
+}
+
+.area {
+  fill: var(--blue);
+  opacity: 0.1;
+}
+
+.tokenLine {
+  stroke: var(--blue);
+  stroke-width: 1.5;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+.costLine {
+  stroke: var(--accent);
+  stroke-width: 1.5;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+.tokenDot {
+  fill: var(--blue);
+  stroke: var(--panel);
+  stroke-width: 2;
+}
+
+.costDot {
+  fill: var(--accent);
+  stroke: var(--panel);
+  stroke-width: 2;
+}
+
+.empty {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0 16px;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  text-align: center;
+}
+
+/* One-day range: no curve to draw, so show the day's totals and completion. */
+.single {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  height: 100%;
+  min-width: 0;
+  padding: 8px 2px;
+}
+
+.singleTop {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+}
+
+.singleDate {
+  margin: 0;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.singleState {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin: 0;
+  color: var(--accent);
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  line-height: 1.4;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.singleState::before {
+  content: '';
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  background: var(--accent);
+}
+
+.singleFigures {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 14px 24px;
+  min-width: 0;
+}
+
+.singleFigure {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 0;
+}
+
+.singleFigureCost {
+  align-items: flex-end;
+  text-align: right;
+}
+
+.singleLabel {
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+.singleTokens {
+  color: var(--ivory);
+  font-family: var(--serif);
+  font-size: clamp(46px, 7vw, 68px);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+  line-height: 0.95;
+}
+
+.singleCost {
+  color: var(--accent);
+  font-family: var(--mono);
+  font-size: 20px;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+
+.progress {
+  display: grid;
+  gap: 6px;
+}
+
+.progressTrack {
+  display: block;
+  height: 6px;
+  overflow: hidden;
+  background: var(--elem);
+}
+
+.progressFill {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--accent);
+}
+
+.progressScale {
+  display: flex;
+  justify-content: space-between;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.singleNote {
+  margin: 0;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  line-height: 1.6;
+}
+
+.tip {
+  position: absolute;
+  top: 8px;
+  z-index: 10;
+  box-sizing: border-box;
+  width: 200px;
+  padding: 10px 12px;
+  border: 1px solid var(--line-strong);
+  background: var(--elem);
+  pointer-events: none;
+}
+
+.tipDate {
+  color: var(--ivory);
+  font-family: var(--serif);
+  font-size: 15px;
+  line-height: 1.25;
+}
+
+.tipRows {
+  display: grid;
+  gap: 3px;
+  margin: 8px 0 0;
+}
+
+.tipRow {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 10px;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.5;
+}
+
+.tipRow dt {
+  color: var(--muted);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.tipRow dd {
+  margin: 0;
+  color: var(--ink-soft);
+  text-align: right;
+  white-space: nowrap;
+}
+
+.tipRowStrong dd {
+  color: var(--ivory);
+}
+
+@media (max-width: 760px) {
+  .head {
+    padding: 16px;
+  }
+
+  .title {
+    font-size: 21px;
+  }
+
+  .canvas {
+    padding: 4px 12px 10px;
+  }
+}

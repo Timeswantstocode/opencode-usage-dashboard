@@ -1,0 +1,120 @@
+.strip {
+  min-width: 0;
+  overflow: hidden;
+  background: var(--panel);
+  border: 1px solid var(--line);
+}
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  min-width: 0;
+  margin: 0;
+}
+
+.cell {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  padding: 20px 14px 18px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  container-type: inline-size;
+}
+
+.cell:nth-child(6n) {
+  border-right: 0;
+}
+
+.cell:nth-child(n + 7) {
+  border-bottom: 0;
+}
+
+.label {
+  margin: 0;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  line-height: 1.4;
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.value {
+  margin: 12px 0 0;
+  color: var(--ivory);
+  font-family: var(--serif);
+  font-size: clamp(26px, 26cqi, 40px);
+  font-variant-numeric: lining-nums tabular-nums;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sub {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 10px;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.02em;
+  line-height: 1.4;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 1100px) {
+  .list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .cell:nth-child(6n) {
+    border-right: 1px solid var(--line);
+  }
+
+  .cell:nth-child(3n) {
+    border-right: 0;
+  }
+
+  .cell:nth-child(n + 7) {
+    border-bottom: 1px solid var(--line);
+  }
+
+  .cell:nth-child(n + 10) {
+    border-bottom: 0;
+  }
+}
+
+@media (max-width: 700px) {
+  .list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .cell,
+  .cell:nth-child(3n),
+  .cell:nth-child(n + 10) {
+    padding: 16px 16px 14px;
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .cell:nth-child(2n) {
+    border-right: 0;
+  }
+
+  .cell:nth-child(n + 11) {
+    border-bottom: 0;
+  }
+
+  .value {
+    font-size: 32px;
+  }
+}

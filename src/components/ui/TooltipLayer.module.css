@@ -1,0 +1,32 @@
+/* The one hover panel, matching the DailyChart tooltip surface. Fixed so it
+   can escape any scrolling or clipped section; the layer positions it. */
+.panel {
+  position: fixed;
+  z-index: 1000;
+  max-width: 300px;
+  padding: 10px 12px;
+  overflow-wrap: break-word;
+  border: 1px solid var(--line-strong);
+  border-radius: 10px;
+  background: var(--elem);
+  box-shadow: var(--shadow-box);
+  pointer-events: none;
+}
+
+.title {
+  margin-bottom: 6px;
+  color: var(--ivory);
+  font-family: var(--serif);
+  font-size: 14px;
+  line-height: 1.25;
+}
+
+.body {
+  color: var(--ink);
+  font-family: var(--mono);
+  font-size: 11px;
+  line-height: 1.45;
+  white-space: pre-line;
+}
+
+/* No transition or animation: reduced motion needs nothing extra. */

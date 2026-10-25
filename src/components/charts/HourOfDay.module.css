@@ -1,0 +1,157 @@
+.panel {
+  min-width: 0;
+  overflow: hidden;
+  background: var(--panel);
+  border: 1px solid var(--line);
+}
+
+.head {
+  padding: 18px 20px 14px;
+  border-bottom: 1px solid var(--line);
+}
+
+.title {
+  margin: 0;
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 1.15;
+}
+
+.meta,
+.summary {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.meta {
+  margin: 6px 0 0;
+  color: var(--muted);
+  letter-spacing: 0.12em;
+}
+
+.summary {
+  margin: 8px 0 0;
+  color: var(--ink-soft);
+  letter-spacing: 0.1em;
+}
+
+.body {
+  padding: 16px 20px 18px;
+}
+
+.empty {
+  display: grid;
+  place-items: center;
+  min-height: 206px;
+  margin: 0;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+}
+
+.chart {
+  display: grid;
+  grid-template-columns: repeat(24, minmax(0, 1fr));
+  gap: 3px;
+  height: 198px;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  min-width: 0;
+}
+
+.value {
+  display: block;
+  flex: none;
+  height: 12px;
+  margin-bottom: 5px;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 8px;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.valuePeak {
+  color: var(--accent);
+}
+
+/* The peak label is wider than its column: keep it inside the panel at the
+   first and last hours. */
+.peakStart {
+  align-items: flex-start;
+}
+
+.peakEnd {
+  align-items: flex-end;
+}
+
+.track {
+  display: flex;
+  align-items: flex-end;
+  width: 100%;
+  flex: 1;
+  min-height: 0;
+}
+
+.bar {
+  display: block;
+  width: 100%;
+  background: var(--accent);
+  opacity: 0.7;
+}
+
+.peak {
+  opacity: 1;
+}
+
+.axis {
+  display: grid;
+  grid-template-columns: repeat(24, minmax(0, 1fr));
+  gap: 3px;
+  margin-top: 7px;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 9px;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+  line-height: 1;
+}
+
+.axis span {
+  text-align: center;
+}
+
+@media (max-width: 640px) {
+  .head {
+    padding: 14px 12px 12px;
+  }
+
+  .body {
+    padding: 12px;
+  }
+
+  .chart {
+    gap: 2px;
+    height: 184px;
+  }
+
+  .axis {
+    gap: 2px;
+    font-size: 8px;
+  }
+}

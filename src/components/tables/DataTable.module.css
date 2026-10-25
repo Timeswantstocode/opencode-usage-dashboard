@@ -1,0 +1,12 @@
+/* Doubling the class lets this outrank the tab tables' `td` rules without
+   !important, whatever order the two CSS modules are emitted in. */
+.empty.empty {
+  padding: 30px 20px;
+  border-bottom: 0;
+  color: var(--muted);
+  font-family: var(--mono, 'Cascadia Mono', Consolas, 'SF Mono', Menlo, monospace);
+  font-size: 11px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  text-align: left;
+}

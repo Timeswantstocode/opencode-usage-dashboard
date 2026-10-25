@@ -1,0 +1,481 @@
+.tab {
+  min-width: 0;
+  container-type: inline-size;
+  border: 1px solid var(--line);
+  background: var(--panel);
+  color: var(--ink);
+  font-family: var(--sans);
+}
+
+.header {
+  padding: 20px 20px 18px;
+  border-bottom: 1px solid var(--line);
+}
+
+.explainer {
+  margin: 0;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+/* Filters ----------------------------------------------------------------- */
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 16px;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--line);
+}
+
+.field {
+  display: grid;
+  gap: 4px;
+}
+
+.fieldLabel {
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.input,
+.select {
+  height: 30px;
+  border: 1px solid var(--line-strong);
+  background: var(--elem);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 13px;
+}
+
+.input {
+  width: 260px;
+  max-width: 100%;
+  padding: 0 10px;
+  appearance: none;
+}
+
+.input::placeholder {
+  color: var(--muted);
+}
+
+.input:focus-visible,
+.select:focus-visible {
+  outline: 1px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.selectWrap {
+  position: relative;
+  display: inline-flex;
+}
+
+.select {
+  min-width: 180px;
+  padding: 0 28px 0 10px;
+  appearance: none;
+  cursor: pointer;
+}
+
+.chevron {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 10px;
+  line-height: 1;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+/* Table ------------------------------------------------------------------- */
+
+.table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  table-layout: fixed;
+}
+
+/* The Shell's topbar is sticky and 56px tall above 980px. */
+.table thead th {
+  position: sticky;
+  top: 56px;
+  z-index: 2;
+  background: var(--panel);
+}
+
+.table th,
+.table td {
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--line);
+}
+
+.table th {
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-align: left;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.sortButton {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 5px;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+  text-align: inherit;
+  text-transform: inherit;
+  cursor: pointer;
+}
+
+.sortButton:hover,
+.sortButtonActive {
+  color: var(--ink);
+}
+
+.right .sortButton {
+  justify-content: flex-end;
+}
+
+.sortMark {
+  flex: none;
+  color: var(--accent);
+  font-size: 8px;
+  line-height: 1;
+}
+
+.table td {
+  font-size: 12px;
+  vertical-align: middle;
+}
+
+.table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.table .right {
+  text-align: right;
+}
+
+.row:hover td {
+  background: var(--elem);
+}
+
+/* Cells ------------------------------------------------------------------- */
+
+.titleCell {
+  min-width: 0;
+}
+
+.titleLine {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
+
+.subagent .titleLine {
+  padding-left: 16px;
+}
+
+.subArrow {
+  flex: none;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 12px;
+  line-height: 1;
+}
+
+.sessionTitle {
+  max-width: 60ch;
+  overflow: hidden;
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 15px;
+  line-height: 1.3;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.projectCell,
+.modelCell {
+  min-width: 0;
+}
+
+.projectName {
+  display: block;
+  overflow: hidden;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 11px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.modelName {
+  display: block;
+  overflow: hidden;
+  color: var(--ink-soft);
+  font-family: var(--mono);
+  font-size: 11px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.agentCell {
+  overflow: hidden;
+}
+
+.badge {
+  display: inline-block;
+  max-width: 100%;
+  overflow: hidden;
+  padding: 1px 6px;
+  border: 1px solid var(--line-strong);
+  color: var(--ink-soft);
+  font-family: var(--mono);
+  font-size: 10px;
+  line-height: 1.5;
+  text-overflow: ellipsis;
+  vertical-align: bottom;
+  white-space: nowrap;
+}
+
+.num {
+  overflow: hidden;
+  color: var(--ink-soft);
+  font-family: var(--mono);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tokenCell {
+  overflow: hidden;
+}
+
+.tokenValue {
+  display: block;
+}
+
+.tokenBar {
+  display: block;
+  height: 2px;
+  margin-top: 5px;
+  overflow: hidden;
+  background: var(--line);
+}
+
+.tokenBarFill {
+  display: block;
+  height: 100%;
+  background: var(--accent);
+  opacity: 0.3;
+}
+
+/* Footer ------------------------------------------------------------------ */
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 20px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.footerTag {
+  color: var(--ink-soft);
+}
+
+/* Column widths ----------------------------------------------------------- */
+
+.colTitle {
+  width: 22%;
+}
+
+.colProject {
+  width: 9%;
+}
+
+.colAgent {
+  width: 8%;
+}
+
+.colModel {
+  width: 16%;
+}
+
+.colStarted {
+  width: 8%;
+}
+
+.colDuration {
+  width: 9%;
+}
+
+.colMessages {
+  width: 9%;
+}
+
+.colTokens {
+  width: 8%;
+}
+
+.colCost {
+  width: 11%;
+}
+
+/* Responsive -------------------------------------------------------------- */
+
+/* The Shell's topbar is only sticky above 980px; below that the table header
+   reaches the top of the viewport. */
+@media (max-width: 980px) {
+  .table thead th {
+    top: 0;
+  }
+}
+
+@container (max-width: 1050px) {
+  .hideMd {
+    display: none;
+  }
+
+  .header {
+    padding: 16px 14px;
+  }
+
+  .toolbar {
+    padding: 12px 14px;
+  }
+
+  .table th,
+  .table td {
+    padding: 10px 12px;
+  }
+
+  .colTitle {
+    width: 30%;
+  }
+
+  .colProject {
+    width: 11%;
+  }
+
+  .colModel {
+    width: 16%;
+  }
+
+  .colStarted {
+    width: 10%;
+  }
+
+  .colDuration {
+    width: 12%;
+  }
+
+  .colTokens {
+    width: 9%;
+  }
+
+  .colCost {
+    width: 12%;
+  }
+}
+
+@container (max-width: 750px) {
+  .hideSm {
+    display: none;
+  }
+
+  .table th,
+  .table td {
+    padding: 10px;
+  }
+
+  .colTitle {
+    width: 47%;
+  }
+
+  .colProject {
+    width: 12%;
+  }
+
+  .colModel {
+    width: 16%;
+  }
+
+  .colTokens {
+    width: 11%;
+  }
+
+  .colCost {
+    width: 14%;
+  }
+}
+
+@container (max-width: 600px) {
+  .hideNarrow {
+    display: none;
+  }
+
+  .table th,
+  .table td {
+    padding: 10px 8px;
+  }
+
+  .colTitle {
+    width: 56%;
+  }
+
+  .colTokens {
+    width: 20%;
+  }
+
+  .colCost {
+    width: 24%;
+  }
+
+  .field {
+    flex: 1 1 100%;
+  }
+
+  .input,
+  .selectWrap {
+    width: 100%;
+  }
+
+  .select {
+    width: 100%;
+  }
+
+  .footer {
+    padding: 10px 14px;
+  }
+}
+

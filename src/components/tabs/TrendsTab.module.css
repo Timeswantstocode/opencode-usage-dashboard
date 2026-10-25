@@ -1,0 +1,160 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  min-width: 0;
+}
+
+.split {
+  display: grid;
+  gap: 24px;
+  align-items: stretch;
+}
+
+.splitWide {
+  grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr);
+}
+
+.splitEven {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.panel {
+  min-width: 0;
+  border: 1px solid var(--line);
+  background: var(--panel);
+}
+
+.head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px 24px;
+  padding: 20px 24px 16px;
+  border-bottom: 1px solid var(--line);
+}
+
+.eyebrow {
+  margin: 0 0 6px;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.title {
+  margin: 0;
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 24px;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 1.15;
+}
+
+.note {
+  margin: 0;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  line-height: 1.4;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.item {
+  display: grid;
+  grid-template-columns: 132px minmax(0, 1fr);
+  gap: 8px 20px;
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--line);
+}
+
+.item:last-child {
+  border-bottom: 0;
+}
+
+.label {
+  padding-top: 3px;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.text {
+  margin: 0;
+  color: var(--ink-soft);
+  font-family: var(--serif);
+  font-size: 17px;
+  letter-spacing: 0.005em;
+  line-height: 1.5;
+  max-width: 74ch;
+}
+
+.empty {
+  margin: 0;
+  padding: 30px 24px;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  line-height: 1.6;
+}
+
+@media (max-width: 1100px) {
+  .splitWide,
+  .splitEven {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 760px) {
+  .root {
+    gap: 16px;
+  }
+
+  .split {
+    gap: 16px;
+  }
+
+  .head {
+    padding: 16px;
+  }
+
+  .title {
+    font-size: 21px;
+  }
+
+  .item {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 4px;
+    padding: 14px 16px;
+  }
+
+  .label {
+    padding-top: 0;
+  }
+
+  .text {
+    font-size: 16px;
+  }
+
+  .empty {
+    padding: 26px 16px;
+  }
+}

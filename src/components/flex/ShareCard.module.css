@@ -1,0 +1,279 @@
+.wrap {
+  display: grid;
+  gap: 14px;
+}
+
+.card {
+  container-type: inline-size;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1200 / 630;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  overflow: hidden;
+  background: var(--panel);
+  border: 0;
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  color: var(--ink);
+  font-family: var(--sans, 'Segoe UI Variable', 'Segoe UI', system-ui, sans-serif);
+}
+
+.top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 2cqw;
+}
+
+.wordmark {
+  font-family: var(--mono, 'Cascadia Mono', Consolas, monospace);
+  font-size: clamp(11px, 1.5cqw, 20px);
+  letter-spacing: -0.02em;
+  color: var(--ivory);
+}
+
+.mark {
+  color: var(--accent);
+}
+
+.kicker {
+  font-family: var(--mono, 'Cascadia Mono', Consolas, monospace);
+  font-size: clamp(8px, 0.9cqw, 12px);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.heroes {
+  display: flex;
+  align-items: stretch;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.hero {
+  display: grid;
+  flex: 1 1 0;
+  gap: 0.4cqw;
+  min-width: 0;
+  padding: 16px 18px;
+  background: var(--elem);
+  border-radius: var(--radius-box);
+  box-shadow: var(--shadow-box);
+}
+
+.big {
+  font-family: var(--serif, 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif);
+  font-size: clamp(36px, 11cqw, 148px);
+  font-weight: 400;
+  line-height: 0.82;
+  letter-spacing: -0.045em;
+  color: var(--ivory);
+  font-variant-numeric: lining-nums tabular-nums;
+  white-space: nowrap;
+}
+
+.bigLabel {
+  font-family: var(--mono, 'Cascadia Mono', Consolas, monospace);
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  white-space: nowrap;
+}
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: auto;
+  border: 0;
+}
+
+.metric {
+  display: grid;
+  gap: 0.35cqw;
+  min-width: 0;
+  padding: 10px 12px;
+  background: var(--elem);
+  border-radius: var(--radius-box);
+  box-shadow: var(--shadow-box);
+}
+
+.metricLabel {
+  font-family: var(--mono, 'Cascadia Mono', Consolas, monospace);
+  font-size: 9px;
+  line-height: 1.3;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.metricValue {
+  font-family: var(--serif, 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif);
+  font-size: clamp(24px, 2.6cqw, 28px);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  font-variant-numeric: lining-nums tabular-nums;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.stripBox {
+  margin-top: 10px;
+  padding: 12px;
+  background: var(--elem);
+  border-radius: var(--radius-box);
+  box-shadow: var(--shadow-box);
+}
+
+.strip {
+  display: grid;
+  width: 100%;
+  grid-auto-flow: column;
+  grid-template-rows: repeat(7, auto);
+  gap: 3px;
+  border-radius: calc(var(--radius-box) - 4px);
+  overflow: hidden;
+}
+
+.cell {
+  aspect-ratio: 1;
+  background: var(--cell-empty-box);
+}
+
+/* Days outside the selected range keep their place in the strip but recede,
+   the same weight the Activity calendar gives them. */
+.cellOut {
+  opacity: 0.22;
+  filter: saturate(0.5);
+}
+
+.footer {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 2cqw;
+  margin-top: 1cqw;
+  font-family: var(--mono, 'Cascadia Mono', Consolas, monospace);
+  font-size: clamp(7px, 0.88cqw, 11px);
+  letter-spacing: 0.04em;
+  color: var(--muted);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.button {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-control);
+  background: transparent;
+  color: var(--ink-soft);
+  padding: 9px 14px;
+  box-shadow: none;
+  font-family: var(--mono, 'Cascadia Mono', Consolas, monospace);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.button:hover {
+  border-color: var(--accent);
+  color: var(--ivory);
+}
+
+.icon {
+  display: inline-flex;
+  width: 14px;
+  height: 14px;
+  flex: 0 0 auto;
+}
+
+.button:focus-visible {
+  outline: 1px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.status {
+  font-family: var(--mono, 'Cascadia Mono', Consolas, monospace);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* The 1200x630 surface only has room for the boxed layout once it is wide
+   enough; below that let the card take its content height instead of
+   clipping the footer or crushing the boxes. */
+@media (max-width: 1260px) and (min-width: 721px) {
+  .card {
+    aspect-ratio: auto;
+  }
+}
+
+@media (max-width: 720px) {
+  .card {
+    /* Stacked heroes need their natural height; a locked 1200/630 ratio
+       would clip them on a 390px phone. */
+    aspect-ratio: auto;
+  }
+
+  .heroes {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .metricValue {
+    font-size: 22px;
+  }
+
+  .strip {
+    gap: 2px;
+  }
+}
+
+@media (max-width: 720px) {
+  .actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .button {
+    width: 100%;
+  }
+
+  /* Three actions: the Instagram export takes the full second row. */
+  .button:last-of-type {
+    grid-column: 1 / -1;
+  }
+
+  .status {
+    grid-column: 1 / -1;
+    min-height: 14px;
+  }
+}
